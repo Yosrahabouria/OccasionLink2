@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-event-create',
-  standalone: true,
-  imports: [FormsModule],
   templateUrl: './event-create.component.html',
   styleUrls: ['./event-create.component.css']
 })
@@ -16,9 +14,13 @@ export class EventCreateComponent {
     date: ''
   };
 
-  eventTypes: string[] = ['Professional Meeting', 'Gender Reveal', 'Anniversary'];
-  locations: string[] = ['Tunis', 'La Marsa', 'Sidi Bousaid'];
-
+  selectedEvent!: string;
+  numberOfPeople!: number;
+  selectedLocation!: string;
+  selectedDate: Date= new Date();
+  events = [{value: 'option1', label: 'Professional Meeting'}, {value: 'option2', label: 'Sex Gender Reveal'}, {value: 'option3', label: 'Anniversary'}];
+  locations = [{value: '1', label: 'Tunis'}, {value: '2', label: 'La Marsa'}, {value: '3', label: 'Sidi Bousaid'}];
+  
   constructor() {}
 
   onSubmit(eventForm: any) {

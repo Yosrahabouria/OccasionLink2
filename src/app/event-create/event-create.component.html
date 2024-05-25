@@ -24,38 +24,28 @@
     }
   </script>
 
-  <div class="container">
-    <form (ngSubmit)="onSubmit(eventForm)" #eventForm="ngForm">
-        <h3>Select type of event</h3>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-            <label class="form-check-label" for="exampleRadios1">Professional Meeting</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-            <label class="form-check-label" for="exampleRadios2">Sex Gender Reveal</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-            <label class="form-check-label" for="exampleRadios3">Anniversary</label>
-        </div>
+<div class="container">
+  <form (ngSubmit)="onSubmit(eventForm)" #eventForm="ngForm">
+    <h3>Select type of event</h3>
+    <div class="form-check" *ngFor="let event of events; index as i">
+      <input class="form-check-input" type="radio" name="eventType" id="exampleRadios{{i}}" [(ngModel)]="selectedEvent" [value]="event.value">
+      <label class="form-check-label" for="exampleRadios{{i}}">{{event.label}}</label>
+    </div>
 
-        <label for="customRange3" class="form-label"><h3>Number of people</h3></label>
-        <input type="range" class="form-range" min="0" max="100" step="1" id="customRange3">
+    <label for="customRange3" class="form-label"><h3>Number of people</h3></label>
+    <input type="range" class="form-range" min="0" max="100" step="1" id="customRange3" [(ngModel)]="numberOfPeople" name="numberOfPeople">
 
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Select Localization</option>
-            <option value="1">Tunis</option>
-            <option value="2">La Marsa</option>
-            <option value="3">Sidi Bousaid</option>
-        </select>
-        <label for="start"><h3>Select Date</h3></label>
-        <input type="date" id="start" name="trip-start" value="2024-05-21" min="2024-05-21" max="2030-12-31" />
-        <div class="col-12">
-            <button class="btn btn-primary btn-submit btn-red" type="submit">Submit Reservationsss</button>
-        </div>
-    </form>      
-    
-  </div>
+    <select class="form-select" [(ngModel)]="selectedLocation" name="location">
+      <option *ngFor="let location of locations" [value]="location.value">{{location.label}}</option>
+    </select>
+
+    <label for="start"><h3>Select Date</h3></label>
+    <input type="date" id="start" name="trip-start" [(ngModel)]="selectedDate" min="2024-05-21" max="2030-12-31" />
+
+    <div class="col-12">
+      <button class="btn btn-primary btn-submit btn-red" type="submit">Submit Reservation</button>
+    </div>
+  </form>
+</div>
 </body>
 </html>
