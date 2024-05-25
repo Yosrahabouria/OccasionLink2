@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Creation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="event-create.component.css">
+</head>
+<body>
+  <script>
+    function submitForm() {
+      const form = document.getElementById('eventForm');
+      const eventType = form.eventType.value;
+      const numberOfPeople = form.numberOfPeople.value;
+      const location = form.location.value;
+      const date = form.date.value;
+
+      if (eventType && numberOfPeople && location && date) {
+        alert(`Event was created Successfully!\n\nEvent Type: ${eventType}\nNumber of People: ${numberOfPeople}\nLocation: ${location}\nDate: ${date}`);
+      } else {
+        alert('Please fill out all fields.');
+      }
+    }
+  </script>
+
+  <div class="container">
+    <form >
+        <h3>Select type of event</h3>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label" for="exampleRadios1">Professional Meeting</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">Sex Gender Reveal</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+            <label class="form-check-label" for="exampleRadios3">Anniversary</label>
+        </div>
+
+        <label for="customRange3" class="form-label"><h3>Number of people</h3></label>
+        <input type="range" class="form-range" min="0" max="100" step="1" id="customRange3">
+
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Select Localization</option>
+            <option value="1">Tunis</option>
+            <option value="2">La Marsa</option>
+            <option value="3">Sidi Bousaid</option>
+        </select>
+        <label for="start"><h3>Select Date</h3></label>
+        <input type="date" id="start" name="trip-start" value="2024-05-21" min="2024-05-21" max="2030-12-31" />
+        <div class="col-12">
+            <button class="btn btn-primary btn-submit btn-red" type="button" onclick="submitForm()">Submit Reservationsss</button>
+        </div>
+    </form>      
+    
+  </div>
+</body>
+</html>
