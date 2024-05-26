@@ -8,8 +8,16 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class EventCreateComponent implements OnInit {
   eventForm: FormGroup;
-  events = [{value: 'option1', label: 'Professional Meeting'}, {value: 'option2', label: 'Sex Gender Reveal'}, {value: 'option3', label: 'Anniversary'}];
-  locations = [{value: '1', label: 'Tunis'}, {value: '2', label: 'La Marsa'}, {value: '3', label: 'Sidi Bousaid'}];
+  events = [
+    {value: 'option1', label: 'Professional Meeting'}, 
+    {value: 'option2', label: 'Gender Reveal'}, 
+    {value: 'option3', label: 'Anniversary'}
+  ];
+  locations = [
+    {value: '1', label: 'Tunis'}, 
+    {value: '2', label: 'La Marsa'}, 
+    {value: '3', label: 'Sidi Bousaid'}
+  ];
 
   constructor() {
     this.eventForm = new FormGroup({
