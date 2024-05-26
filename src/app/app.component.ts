@@ -3,8 +3,11 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common'; 
 import { EventCreateComponent } from './event-create/event-create.component';
+import { UserCreateComponent } from './user-create/user-create.component';
+import { UserProfileComponent } from './user-profile/UserProfileComponent';
 
 @Component({
   selector: 'app-root',

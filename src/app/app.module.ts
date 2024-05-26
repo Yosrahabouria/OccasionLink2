@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common'; 
+import { EventService } from './event.service';
+
+
 
 import { AppComponent } from './app.component';
 import { EventCreateComponent } from './event-create/event-create.component';
-import { UserCreateComponent } from './user-create/user-create.component';
 import { UserProfileComponent } from './user-profile/UserProfileComponent';
-
+import { UserCreateComponent } from './user-create/user-create.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,12 +19,10 @@ import { UserProfileComponent } from './user-profile/UserProfileComponent';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
-    FormsModule,
     HttpClientModule,
-    CommonModule
+    RouterModule.forRoot([])
   ],
-  providers: [],
+  providers: [EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
